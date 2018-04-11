@@ -14,6 +14,7 @@
 		367D0D72207E8B9500C6E9FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 367D0D70207E8B9500C6E9FB /* LaunchScreen.storyboard */; };
 		367D0D7D207E8B9500C6E9FB /* ObjectRecognition_CoreMLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367D0D7C207E8B9500C6E9FB /* ObjectRecognition_CoreMLTests.swift */; };
 		367D0D88207E8B9500C6E9FB /* ObjectRecognition_CoreMLUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367D0D87207E8B9500C6E9FB /* ObjectRecognition_CoreMLUITests.swift */; };
+		36F9F7FD207E917E007F9E7D /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 36F9F7FC207E917D007F9E7D /* Inceptionv3.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		367D0D83207E8B9500C6E9FB /* ObjectRecognition-CoreMLUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ObjectRecognition-CoreMLUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		367D0D87207E8B9500C6E9FB /* ObjectRecognition_CoreMLUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectRecognition_CoreMLUITests.swift; sourceTree = "<group>"; };
 		367D0D89207E8B9500C6E9FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36F9F7FC207E917D007F9E7D /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		367D0D66207E8B9400C6E9FB /* ObjectRecognition-CoreML */ = {
 			isa = PBXGroup;
 			children = (
+				36F9F7FC207E917D007F9E7D /* Inceptionv3.mlmodel */,
 				367D0D67207E8B9400C6E9FB /* AppDelegate.swift */,
 				367D0D69207E8B9400C6E9FB /* ViewController.swift */,
 				367D0D6B207E8B9400C6E9FB /* Main.storyboard */,
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				367D0D6A207E8B9400C6E9FB /* ViewController.swift in Sources */,
+				36F9F7FD207E917E007F9E7D /* Inceptionv3.mlmodel in Sources */,
 				367D0D68207E8B9400C6E9FB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
