@@ -15,7 +15,8 @@ import Accelerate
 
 class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
-    @IBOutlet weak var imageView :UIImageView!
+    // Camera Screen View and ObjectName Label
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var objectName: UILabel!
     
     override func viewDidLoad() {
@@ -56,28 +57,31 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         let imageModel: Inceptionv3 = Inceptionv3()
 
         if let prediciton = try? imageModel.prediction(image: image) {
-            return prediciton.classLabel
+            return prediciton.classLabel // get Object name
         }
         
         return "Loading..."
     }
     
+    // Get Camera Picture in real-time as a CVPixelBuffer to predict the output
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         
         DispatchQueue.main.async {
-            guard var pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
+            guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
                 return
             }
             
-            pixelBuffer = self.resizePixelBuffer(pixelBuffer, width: 299, height: 299) as! CVImageBuffer 
+            guard let imagePixelBuffer = self.resizePixelBuffer(pixelBuffer, width: 299, height: 299) else {
+                return
+            }
 
-            self.objectName.text = self.getPrediction(image: pixelBuffer)
+            // get prediction
+            self.objectName.text = self.getPrediction(image: imagePixelBuffer)
         }
     }
     
-    /**
-     Creates a RGB pixel buffer of the specified width and height.
-     */
+    
+    // Creates a RGB pixel buffer of the specified width and height
     public func createPixelBuffer(width: Int, height: Int) -> CVPixelBuffer? {
         var pixelBuffer: CVPixelBuffer?
         let status = CVPixelBufferCreate(nil, width, height,
@@ -90,9 +94,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         return pixelBuffer
     }
     
-    /**
-     First crops the pixel buffer, then resizes it.
-     */
+    // First crops the pixel buffer, then resizes it.
     public func resizePixelBuffer(_ srcPixelBuffer: CVPixelBuffer,
                                   cropX: Int,
                                   cropY: Int,
@@ -151,9 +153,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         return dstPixelBuffer
     }
     
-    /**
-     Resizes a CVPixelBuffer to a new width and height.
-     */
+    // Resizes a CVPixelBuffer to a new width and height.
     public func resizePixelBuffer(_ pixelBuffer: CVPixelBuffer,
                                   width: Int, height: Int) -> CVPixelBuffer? {
         return resizePixelBuffer(pixelBuffer, cropX: 0, cropY: 0,
@@ -162,9 +162,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
                                  scaleWidth: width, scaleHeight: height)
     }
     
-    /**
-     Resizes a CVPixelBuffer to a new width and height.
-     */
+    // Resizes a CVPixelBuffer to a new width and height.
     public func resizePixelBuffer(_ pixelBuffer: CVPixelBuffer,
                                   width: Int, height: Int,
                                   output: CVPixelBuffer, context: CIContext) {
