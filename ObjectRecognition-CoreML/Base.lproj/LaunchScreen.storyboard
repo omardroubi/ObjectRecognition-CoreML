@@ -17,13 +17,29 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shutterIcon" translatesAutoresizingMaskIntoConstraints="NO" id="5WS-Lw-dA8">
+                                <rect key="frame" x="77" y="223" width="220" height="220"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="FXk-lx-2Mq"/>
+                                    <constraint firstAttribute="width" constant="220" id="u39-Wv-2Wf"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5WS-Lw-dA8" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Dm8-2p-1QC"/>
+                            <constraint firstItem="5WS-Lw-dA8" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="eaD-92-lg5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="shutterIcon" width="720" height="720"/>
+    </resources>
 </document>
