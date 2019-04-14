@@ -6,6 +6,3 @@ Detects the dominant objects present in an image from a set of 1000 categories s
 
 
 https://developer.apple.com/machine-learning/
-
-  
-![screenshot](https://user-images.githubusercontent.com/20921475/38643487-ea6a440e-3de5-11e8-923e-d15272bce4b8.png)
